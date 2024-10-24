@@ -1,0 +1,30 @@
+<div class="col-10 mx-auto my-5">
+    <table class="table table-success table-striped">
+       <thead>
+        <tr>
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>E_Mail</th>
+            <th>Telefono</th>
+            <th>Ciudad</th>
+            <th>Direccion</th>
+            <th>Genero</th>
+        </tr>
+       </thead>
+       <tbody>
+        @for (item of duenio; track $index) {
+        <tr>
+            <td>{{item.documento}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.telefono}}</td>
+            <td>{{item.ciudad}}</td>
+            <td>{{item.direccion}}</td>
+            <td>{{item.genero}}</td>
+        </tr>
+    }
+       </tbody>
+    </table>
+</div>

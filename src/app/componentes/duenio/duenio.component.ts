@@ -42,29 +42,28 @@ export class DuenioComponent implements OnInit {
   }
 
   getDuenio() {
-    this.duenioServicio.getDuenio(Number(this.id)).subscribe(
-      response => {
-        console.log('GET request successful!', response);
+    this.duenioServicio.getDuenio(Number(this.id)).subscribe({
+      next: response => {
         this.duenioForm.patchValue(response);
       },
-      error => {
+      error: error => {
         console.error('There was an error with the GET request!', error);
       }
-    );
+    });
   }
 
   updateDuenio() {
     const id = Number(this.id);
     const body = this.duenioForm.value;
 
-    this.duenioServicio.updateDuenio(id, body).subscribe(
-      response => {
-        console.log('PATCH request successful!', response);
+    this.duenioServicio.updateDuenio(id, body).subscribe({
+      next: response => {
+        console.log('PUT request successful!', response);
       },
-      error => {
-        console.error('There was an error with the PATCH request!', error);
-      }
-    );
+      error: error => {
+        console.error('There was an error with the PUT request!', error);
+      },
+    });
   }
 
   deleteDuenio() {
@@ -82,14 +81,14 @@ export class DuenioComponent implements OnInit {
 
   createDuenio() {
     const body = this.duenioForm.value;
-    this.duenioServicio.createDuenio(body).subscribe(
-      response => {
+    this.duenioServicio.createDuenio(body).subscribe({
+      next: response => {
         console.log('POST request successful!', response);
       },
-      error => {
+      error: error => {
         console.error('There was an error with the POST request!', error);
       }
-    )
+    });
   }
 
   onSubmit() {

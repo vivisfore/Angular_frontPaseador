@@ -10,12 +10,15 @@
           <th>Ciudad</th>
           <th>Direccion</th>
           <th>Genero</th>
+          <th>Acciones</th>
       </tr>
      </thead>
      <tbody>
       @for (item of duenio; track $index) {
-        <tr [routerLink]="['/duenio', item.documento]">
-            <td>{{item.documento}}</td>
+        <tr>
+            <td>
+              <a [routerLink]="['/duenio', item.documento]">{{item.documento}}</a>
+            </td>
             <td>{{item.nombre}}</td>
             <td>{{item.apellido}}</td>
             <td>{{item.email}}</td>
@@ -23,6 +26,11 @@
             <td>{{item.ciudad}}</td>
             <td>{{item.direccion}}</td>
             <td>{{item.genero}}</td>
+            <td>
+              <button class="btn btn-danger" (click)="borrarDuenio(item.documento)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
         </tr>
       }
      </tbody>

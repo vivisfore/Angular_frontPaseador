@@ -28,4 +28,14 @@ export class DueniosComponent implements OnInit {
       }
     )
   }
+
+  borrarDuenio(id:string){
+    const duenioId = Number(id);
+    this.duenioServicio.deleteDuenio(duenioId).subscribe(
+      data => {
+        console.log(data)
+        this.listaDuenio()
+      }
+    )
+  }
 }

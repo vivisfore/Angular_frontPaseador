@@ -1,30 +1,65 @@
 <div class="col-10 mx-auto my-5">
-    <table class="table table-success table-striped">
-       <thead>
-        <tr>
-            <th>Documento</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>E_Mail</th>
-            <th>Telefono</th>
-            <th>Ciudad</th>
-            <th>Direccion</th>
-            <th>Genero</th>
-        </tr>
-       </thead>
-       <tbody>
-        @for (item of duenio; track $index) {
-        <tr>
-            <td>{{item.documento}}</td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.apellido}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.telefono}}</td>
-            <td>{{item.ciudad}}</td>
-            <td>{{item.direccion}}</td>
-            <td>{{item.genero}}</td>
-        </tr>
-    }
-       </tbody>
-    </table>
+  <form [formGroup]="duenioForm">
+    <div class="form-group" *ngIf="id">
+      <label for="documento">Documento:</label>
+      <input id="documento" class="form-control" formControlName="documento">
+      <div *ngIf="duenioForm.get('documento')?.invalid && duenioForm.get('documento')?.touched">
+        <small *ngIf="duenioForm.get('documento')?.errors?.['required']">Documento es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" class="form-control" formControlName="nombre">
+      <div *ngIf="duenioForm.get('nombre')?.invalid && duenioForm.get('nombre')?.touched">
+        <small *ngIf="duenioForm.get('nombre')?.errors?.['required']">Nombre es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input id="apellido" class="form-control" formControlName="apellido">
+      <div *ngIf="duenioForm.get('apellido')?.invalid && duenioForm.get('apellido')?.touched">
+        <small *ngIf="duenioForm.get('apellido')?.errors?.['required']">Apellido es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Telefono:</label>
+      <input id="telefono" class="form-control" formControlName="telefono">
+      <div *ngIf="duenioForm.get('telefono')?.invalid && duenioForm.get('telefono')?.touched">
+        <small *ngIf="duenioForm.get('telefono')?.errors?.['required']">Telefono es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" class="form-control" formControlName="email">
+      <div *ngIf="duenioForm.get('email')?.invalid && duenioForm.get('email')?.touched">
+        <small *ngIf="duenioForm.get('email')?.errors?.['required']">Email es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="direccion">Direccion:</label>
+      <input id="direccion" class="form-control" formControlName="direccion">
+      <div *ngIf="duenioForm.get('direccion')?.invalid && duenioForm.get('direccion')?.touched">
+        <small *ngIf="duenioForm.get('direccion')?.errors?.['direccion']">Direccion es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="genero">Genero:</label>
+      <input id="genero" class="form-control" formControlName="genero">
+      <div *ngIf="duenioForm.get('genero')?.invalid && duenioForm.get('genero')?.touched">
+        <small *ngIf="duenioForm.get('genero')?.errors?.['required']">Genero es requerido.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ciudad">Ciudad:</label>
+      <input id="ciudad" class="form-control" formControlName="ciudad">
+      <div *ngIf="duenioForm.get('ciudad')?.invalid && duenioForm.get('ciudad')?.touched">
+        <small *ngIf="duenioForm.get('ciudad')?.errors?.['required']">Ciudad es requerido.</small>
+      </div>
+    </div>
+
+
+    <button type="button" class="btn btn-outline-primary" [class.disabled]="duenioForm.invalid" [disabled]="duenioForm.invalid" (click)="onSubmit()">
+      {{ id ? 'Actualizar' : 'Crear' }}
+    </button>
+  </form>
 </div>

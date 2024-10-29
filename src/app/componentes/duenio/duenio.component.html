@@ -1,7 +1,7 @@
 <div class="col-10 mx-auto my-5">
   <form [formGroup]="duenioForm">
-    <div class="form-group" *ngIf="id">
-      <label for="documento">Documento:</label>
+    <div class="form-group" *ngIf="id == null">
+      <label for="d</div>ocumento">Documento:</label>
       <input id="documento" class="form-control" formControlName="documento">
       <div *ngIf="duenioForm.get('documento')?.invalid && duenioForm.get('documento')?.touched">
         <small *ngIf="duenioForm.get('documento')?.errors?.['required']">Documento es requerido.</small>

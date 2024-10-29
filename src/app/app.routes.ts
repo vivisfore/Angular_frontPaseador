@@ -14,5 +14,5 @@ export const routes: Routes = [
   {
     path:"duenio",
     component:DuenioComponent
-  }
+  },
 ];
